@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>성수동 산책 · 9월 12일 토요일</title>
+<style>
+  :root{
+    --paper:#F2F3F1; --ink:#1B1E1B; --ink-soft:#5C625C; --faint:#8E948D;
+    --rule:#D8DBD6; --brick:#9E3B2C; --moss:#4F6247;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    font-size:17px; line-height:1.6;
+    padding:0 16px 64px; max-width:620px; margin:0 auto;
+    overflow-x:hidden;
+  }
+
+  header{padding:40px 0 24px;border-bottom:2px solid var(--ink)}
+  .date{font-size:15px;color:var(--ink-soft)}
+  h1{font-size:33px;line-height:1.2;font-weight:700;margin:6px 0 14px;letter-spacing:-.02em}
+  .lede{font-size:16px;color:var(--ink-soft)}
+
+  .legend{display:flex;gap:18px;margin-top:20px;font-size:14px;color:var(--ink-soft);flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:7px}
+  .chip{width:11px;height:11px;border-radius:2px;flex:none}
+  .chip.wait{background:var(--brick)}
+  .chip.free{background:var(--moss)}
+
+  .zone{
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    margin-top:44px;padding-bottom:9px;border-bottom:1px solid var(--ink);
+  }
+  h2{font-size:20px;font-weight:700}
+  .clock{font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .spot{padding:22px 0;border-bottom:1px solid var(--rule)}
+
+  /* 좌우 스크롤 캐러셀 — 화면 양끝까지 흘려보내고 다음 장이 살짝 보이게 */
+  .shots{
+    display:flex; gap:6px;
+    overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin:0 -16px; padding:0 16px;
+  }
+  .shots::-webkit-scrollbar{display:none}
+  .shots img{
+    flex:0 0 86%; width:86%;
+    aspect-ratio:4/3; object-fit:cover; display:block;
+    background:#E3E5E1; scroll-snap-align:center;
+  }
+  .shots img:first-child{scroll-snap-align:start}
+  @media (min-width:520px){
+    .shots{margin:0;padding:0}
+    .shots img{flex:0 0 72%;width:72%}
+  }
+
+  .head{display:flex;align-items:baseline;gap:10px;margin-top:14px}
+  .head a{
+    font-size:21px;font-weight:600;letter-spacing:-.01em;
+    color:var(--ink);text-decoration:none;padding:4px 0;
+  }
+  .head a:active{color:var(--brick)}
+  .head a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .head a span{font-size:14px;color:var(--faint);font-weight:400}
+
+  .badge{
+    flex:none;margin-left:auto;
+    font-size:12.5px;font-weight:600;font-style:normal;
+    padding:3px 9px;border-radius:11px;white-space:nowrap;
+  }
+  .badge.wait{background:var(--brick);color:#fff}
+  .badge.free{background:#DFE4DC;color:var(--moss)}
+
+  .note{font-size:16px;color:var(--ink-soft);margin-top:6px}
+  .note b{color:var(--brick);font-weight:600}
+  .credit{font-size:11px;color:#A5AAA3;margin-top:10px;line-height:1.4}
+
+  .aside{margin-top:40px;padding:22px 18px;background:#fff;border-left:5px solid var(--ink)}
+  .aside h3{font-size:17px;font-weight:700;margin-bottom:8px}
+  .aside p{font-size:16px;color:var(--ink-soft)}
+  .aside a{color:var(--ink);text-underline-offset:3px}
+
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-soft)}
+  footer p+p{margin-top:10px;font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<header>
+  <p class="date">9월 12일 토요일</p>
+  <h1>성수동 산책</h1>
+  <p class="lede">사진은 좌우로 넘겨서 볼 수 있고, 장소명을 누르면 네이버지도가 열립니다. 위에서 아래로 따라가면 되돌아오는 구간 없이 한 방향으로 이어집니다.</p>
+  <div class="legend">
+    <span><i class="chip wait"></i>대기 각오</span>
+    <span><i class="chip free"></i>대기 거의 없음</span>
+  </div>
+</header>
+
+<div class="zone"><h2>서울숲 쪽</h2><span class="clock">오전 10시 – 오후 1시</span></div>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="서울숲 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="서울숲 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC_5lx7Aocy_4H83hcuEUVC9H-1RNG3gWg0LRPin45HYlyC4GGPcrVB5b5-V1XV1c9Sg3-7U1EhcSbrw9XG_qraVZjLOLn4eK8zFyMPQWcSo0CqGc-oTUAsjyXxLOZshAhDaxRmszUpCrtij5s=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="서울숲 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCDhJYQ6loQ7eJIP4r0JNlc7SYGv_FVDawfrAR1tkiMCYgZTPqeYFMQajnElzBWuQxpFYUM_MUkYDbqhxxmWzF1tNUHB1zZzt7wJUn3B-OlqCG5ufSrbpceJM-_JFxzUnAeec0JXZaVoDC50w=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%88%B2">서울숲</a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">수인분당선 서울숲역 3·4번 출구. 오전엔 한산하고 그늘·벤치·화장실이 잘 갖춰져 있습니다.</p>
+  <p class="credit">사진 Myeongsik Shin, 렛츠 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="엘콩데 LIVE 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="엘콩데 LIVE 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCG1DrMui3BOUkdpe8qAOiNC0Nx3R7vct9GMjb3JxzbizfUoPB6BUzyJecuU-BeC4BACHe1FaliVHYshl_F4WMK-R9kPrMrfVAfrbSdGeK8dAUsNB5UwEcJdE8E74y-wY7eiWRAf9RmZrWLQlQ=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="엘콩데 LIVE 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAVdlcV4b_GlchZRsKl-7p4--7642TiTo8oVqOCteuRlwLuS0hdEpuFvC2wvMAAdHCklAusyvHJskVpjNivU6JKMzoXyyf4WMyE0W_F8TlwYUxkQtJGyU3wWKwTnOWqBqtiNHbvy2o38ZdAMA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%97%98%EC%BD%A9%EB%8D%B0%20%EC%84%B1%EC%88%98">엘콩데 LIVE</a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">서울숲 바로 옆 브런치. 9시 오픈이라 10–11시엔 자리가 있습니다. 잼과 스프레드를 사 가기도 좋습니다.</p>
+  <p class="credit">사진 엘콩데 LIVE · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="블루선 안경원 성수점 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="블루선 안경원 성수점 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDkerP2vLUWy7sHEZ5qCmrJWpFBGotzvlgwbKDENMM7mAFt2eUZjBKyEktZk_OjuLHDFp-qirRxa7_NooKgwKlcjnvhmISlhWzHc1nW2u67LkHbi5mWSTRncGGZR_qOrbZQdXqWYA2z6U8Ns7XqfDeVFg=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="블루선 안경원 성수점 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBVVriCY_pLWjUJ1-2sMGZHUHc0XxBKk4_aVO082eoVn9PPTs-Ga0qd9yhDRh70sXZa0ADgNUKzgaNALMOO4MDXJDS2cHyB8HCUrNH9D7nTRU1OGY26-vNNvmk3FxWjTiD_Wy5Jku9Z2kZRu3YaF6_Fjw=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EB%B8%94%EB%A3%A8%EC%84%A0%20%EC%95%88%EA%B2%BD%EC%9B%90%20%EC%84%B1%EC%88%98%EC%A0%90">블루선 안경원 <span>성수점</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">젠틀몬스터 포함 여러 브랜드를 취급합니다. 도수 렌즈 당일 작업이 되니 선글라스 보실 생각이 있으면 여기가 편합니다.</p>
+  <p class="credit">사진 블루선 안경원 성수점, Minmanta Thanaphonpavee · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="이태리국시 성수 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="이태리국시 성수 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCubMAXjamw7RdNl42YMWX17en9VIGVEwCCju42r4XqFWSk9orsXf1TTIfB1g6QSmby5hGP7TvL6FrxjBtrfk0VOhQS4EEIlOZToj1KaPsyljpWuAcrice-6C5YY_PhkxAeQwK3DRBa1AnpXy01-LPsbQ=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="이태리국시 성수 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAv4dhei1cJksNJXGEBMGa25yVMU9BLEE2lDKbADuJnN2oPkSOOM1KTGZ7KLdMdSfkqFBOcKw6MqDwyeTo00LzljrtaK_gM6VAQIx59_2HuvrtrtcAfbKOH97oKKPmBqZEFhwdtbI4hvBiI3bCp1F0Jhw=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%9D%B4%ED%83%9C%EB%A6%AC%EA%B5%AD%EC%8B%9C%20%EC%84%B1%EC%88%98">이태리국시 성수</a>
+    <em class="badge wait">1시간+</em>
+  </div>
+  <p class="note">한식과 이탈리안을 섞은 파스타·리조토. <b>주말 점심은 1시간 이상 대기합니다.</b> 11시 30분 오픈 전에 도착하거나, 테이블링 앱으로 원격 줄서기를 걸어두고 근처를 걷는 편이 낫습니다.</p>
+  <p class="credit">사진 Suzy, 이태리국시 성수 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="5TO7 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="5TO7 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAME1U-CS_2XxboSAgYdhJQF5SrZ4mDRF8GY-BI7k0qoWrdwwp2d8K1zo5npZXzgIL5KW6VwmCwcCM-Jz4VrklkE6sdKbT5f0gkUIMLzL5wW6mzXu7JISjD2V0eGKB7mQ9wV05opSYij4au1Lc5YJqJfQ=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="5TO7 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAZFHeSUonipv8Eygntk25YHIgb4MeVH77iyzQLFhtQJV0_zr-mX634cmwWSEj4anhxz1O4_CKMstcHegaZH7madbC-NUKiJFNXzlO5jhBkHCes6VflzozVWccjKNO0U54iGUHax_CJz3Q_v2ZvyOyqgA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/5TO7%20%EC%84%B1%EC%88%98">5TO7</a>
+    <em class="badge wait">대기+조리</em>
+  </div>
+  <p class="note">수플레 팬케이크. <b>대기에 조리 25분이 더 붙습니다.</b> 가신다면 점심때를 피해 오후 3–4시가 그나마 낫습니다.</p>
+  <p class="credit">사진 이정숙, 여행남 · Google 지도</p>
+</article>
+
+<div class="zone"><h2>연무장길</h2><span class="clock">오후 1시 – 4시</span></div>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="규엔당 성수본점 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="규엔당 성수본점 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBc_ayRAQ2g0431AUPo4cJfPTsiBJpcDsPWruaDXsZY4yVLLg7DIfevvocOR747Eg0I2MYMfbxgXN6Mce3m2wv1QPtfFC_wjymu2G-65Y8YRFhvieFx8ziJ-bL_zVMwRulte05MhfbAmUDRA7TqZpU7uQ=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="규엔당 성수본점 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjD4MYJY__VLMjLrII4Xb12G8TG4Vv93Edw4ZgJZ9OLFWSCH_6e50qOS7YB4ZEpFdCAfc5pyEK6W3m9lOCXdqjoZsvi0BKBQ8VOq-C7-JhyUZGXYojtpNny0TogU5ShKShhSN9tUUxlDpmMnD45XGm6s=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EA%B7%9C%EC%97%94%EB%8B%B9%20%EC%84%B1%EC%88%98%EB%B3%B8%EC%A0%90">규엔당 <span>성수본점</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">규카츠와 브리 오므라이스. 점심 대안으로 무난하고, 대기 없이 들어가는 경우가 많습니다.</p>
+  <p class="credit">사진 규엔당 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="성수 다락 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="성수 다락 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDcDXJ8CV8Hu2FmISl0EkOJP3WAKVr7fe3a5PRPlKoX5drOf8sUka0haTrzPGzpM4cLtO3j0lwpATllG0H9xH8TRipWRqO-1n1J4EITSZBLZQGDdlPp2eY4fUB56hwqFXbvYrGtP8XfouzlrS9FE7sUcg=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="성수 다락 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCiJcsYbXa4J34ajUAkWhNWsalND1f-DOcAR01LDnM5gCwk2qoanQ7ByBf1IBQXvbM-KaWoj5Wwk5bFk7V0M_CbVGXEsXPlMqZsBT66V1O62mpht1evuqVfhd49zseE-tgaIlRrzVwwQp_nXCVCKXPy=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%84%B1%EC%88%98%20%EB%8B%A4%EB%9D%BD">성수 다락</a>
+    <em class="badge wait">30분–1시간</em>
+  </div>
+  <p class="note">옥수수 뇨키와 오므라이스가 대표 메뉴. 주말 11시 오픈이고, <b>12시를 넘기면 대기가 확 늘어납니다.</b></p>
+  <p class="credit">사진 성수다락 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="포인트오브뷰 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="포인트오브뷰 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAxBTvsO7cQ9OFLYluo9MOSSfn8DSi31rBTvWYp-DFdoh3UFspHu9uzkqjHvMjjeW2YzmssG7rG5vuazsK_CbQB9S5XizxlcF_JRUxAP-ToOsAPXSSC4B2TfYTcNc9M3R47ctwVYPB1XiggNw=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="포인트오브뷰 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBXQR01TiUfusT7sV929hiAMXxVAlwmtjq7alfVsqJbmyRMnIEyq7bUR3gOQRiUApUu7U78gRw01SwdANTLBO8pOrFbnMFDP7NaMq4RtyghAEY8CuP4NWQzKWMb5J8KAnNSDLFa-D11NuULn_0=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%98%A4%EB%B8%8C%EB%B7%B0">포인트오브뷰</a>
+    <em class="badge wait">15–30분</em>
+  </div>
+  <p class="note">문구·필기구 편집숍, 3개 층. <b>입장 인원을 제한해 주말엔 줄이 생깁니다.</b> 선물 고르기 좋고, 오후 6시 이후가 한산합니다.</p>
+  <p class="credit">사진 포인트 오브 뷰 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="디올 성수 사진 3장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="디올 성수 사진 1" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fcdn.eyesmag.com%2Fcontent%2Fuploads%2FsliderImages%2F2025%2F01%2F15%2Fdior-seongsu-new-display-with-kaws-07-6316a52a-7e1f-43db-97bf-b6ff5434ea4f.jpg&type=sc960_832">
+    <img loading="lazy" decoding="async" alt="디올 성수 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDoIuFd15NY_3iGeT8o31S77Ibr3cQe_-AiNC-SVN95yMJRv_gTsYjmefmUQ2J-rYWtkpljhe-7OaefKHc6lzo3SC4vqN_bLjLa1_y5z6EFs55PQt-ZOsfJatZe54cOvBJG7qvrF-XFcGfvdu0=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="디올 성수 사진 3" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDJClZBacDhCtrHkx_9Vqvg6G_WAp0OM8852qOFYVFTD9rWyT3QPd5w_2aizR1ARErfJd466kuYROheO7Plr7D8SqbG_glUmS-5d0i5xOLw3JaR1mthT6Vxu9NlbiBTAcnjnFdaF4kxq43hcw=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EB%94%94%EC%98%AC%20%EC%84%B1%EC%88%98">디올 성수</a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">성수동의 유일한 상설 럭셔리 매장. 안 들어가도 외관과 정원이 볼거리입니다. 루프탑 카페 디올은 별도 대기가 있고 예약제로 운영되는 시기가 있습니다.</p>
+  <p class="credit">사진 1번 Eyesmag · 2·3번 Mehdi Hani, DIOR Seongsu / Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="수아레 성수 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="수아레 성수 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBQPrhETRvaTrj84bSeke6p2fHzubb3vga0z6UV9YxtbLTl_7j2LDLphG_D4NP11lzdcI0HigJb8TENobrLlSyU6Rpd1gQ0q_H6V3wX3q3pmP0PQoL4luidBAwGYicd3g6Drctn-OteAb_Q8ElAaYqWAQ=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="수아레 성수 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDfPM7jpiI7eSbInVXzfRQ_5TJc1CBARQAT8obd3WXznTPpop1aIbeVUY6oSdDiTAFP_eoeK-6BoQxyPXtvs2IZujrCljp88LUyfXDNOO1CoeskTaDV94KLWVoOnMOgzwsqHHaAm4yecgdoOsVW8tYDKw=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%88%98%EC%95%84%EB%A0%88%20%EC%84%B1%EC%88%98">수아레 <span>성수</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">캐시미어와 베이비캐시미어를 합리적인 가격대에 취급합니다. 이 동네에서 소재 보고 옷 사기 가장 좋은 곳입니다.</p>
+  <p class="credit">사진 수아레 성수, Ivy Ong · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="우알롱 플래그십 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="우알롱 플래그십 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjC3IqPax-8_jgbQfSgd6cyhrAtV9xIa9rMJ_dKn19jMb-O9EeRtMtaCb5mcKh2b2nB99bjj97mImbkYZgYrUWfmoLSP_RVSlCFpNSUBxleOk_wbDxqhK321ZfzNLZG2JyeWeMCOEJC40JRViE5w8lTP4g=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="우알롱 플래그십 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjByEEw1SjVBw08461_mo8GYjT9w4CWFaygIuqtH0gEzZpgPwZttopQf4T0FwoZ9k_u9S1QsfowFQbHOMaApxBxRofLH3WPj7RglOOLw11c2NXfyATzP0p3Lk3e7nmCRekNe3uClSjgiDJdJlVzE4xyPog=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EC%9A%B0%EC%95%8C%EB%A1%B1%20%EC%84%B1%EC%88%98">우알롱 <span>플래그십</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">1층부터 4층까지. 재킷과 트렌치의 어깨선·재단이 좋다는 평이 많고, 심플하면서 격식 있는 스타일입니다.</p>
+  <p class="credit">사진 우알롱 플래그십 스토어, Zehui Tang · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="트리밍버드 성수 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="트리밍버드 성수 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCxLTrBUWd6BT1K51L7StvxEYvjPTYPQNBPCYmBXSSMnxS5nE9sqk-3fYCbuhXYrWPMy6xc3y6q_nBuL-0u97oOhyVRMFwHuzOYkSv99XI6c8bxABtKrgLMMqWGT0fZNcEXll4FuWEUhUiwAj_guT89_A=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="트리밍버드 성수 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBKWaSlAVb5kzfHMsp_Qufx2SWwhAB3FVbnsImFKA-6bGucxihd0gxWaGYZ1gapXoYNPcY16utHih14fB66asODrC9uvoIB5ca0ypC4txHWdaVV4w8RiaDGgtZdNTtdGdLpxHEvLKLMmidvM-5-BxPKxA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%ED%8A%B8%EB%A6%AC%EB%B0%8D%EB%B2%84%EB%93%9C%20%EC%84%B1%EC%88%98">트리밍버드 <span>성수</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">의류·가방·액세서리를 함께 취급합니다. 매장이 넓어 편하게 둘러볼 수 있습니다.</p>
+  <p class="credit">사진 트리밍버드 성수, 이지영 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="파인드카푸어 플람마하우스 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="파인드카푸어 플람마하우스 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBXJhcoNRKytsN5bK__0pKQv8wxC6OD9Op8k4syI10b9anHXh1XYAsQf6tHa6BRgY0I2IsWzvbb1OxM7cv-gpzlh3dFNMVbDeed1rN0MbdchfbL9bIbQvSqLwInlUp-8_Rs4BjM5eGWu3vwPg=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="파인드카푸어 플람마하우스 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDYHrRbQraEYQ2dgsLAbGac0uFKciCCtkpKnEXIwnAemwtNk9yy3YMStXjH5n1CGAsQbEAh2mH_bBNcKzLmD67iN3V5TxUXVjAGOV11-Tmc3Jo9_wEeW3O4LMG_dAeKauZg95ee3YWvF8JRlfgT8jdzkA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%ED%8C%8C%EC%9D%B8%EB%93%9C%EC%B9%B4%ED%91%B8%EC%96%B4%20%ED%94%8C%EB%9E%8C%EB%A7%88%ED%95%98%EC%9A%B0%EC%8A%A4">파인드카푸어 <span>플람마하우스</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">국내 가방 브랜드 플래그십. 마감 품질 대비 가격이 좋고, 응대가 편하다는 평이 많습니다.</p>
+  <p class="credit">사진 KK Liew, uu · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="헤븐센스 성수연무장점 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="헤븐센스 성수연무장점 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB8U7ui5kCqAEqxdsQedYudbB0eelzUi-SzSdH8R6b5vuVk-KiqTWDrblxdMiQWp4GAFK1UyEnQ3OhXlFS2HkDx7nwvF3S90H8YXEGBd-G9VfQ0wbanJCg5rtMil0BFlDZEE5i7-LgsCzwFIg=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="헤븐센스 성수연무장점 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA9k-15wSLT3bvjWKX2caGSarzR4_lkqyEkAizCnetvBt0JEmleePBfmiV4yrCIPXRd8PXl9lA7-m-KtbBUkZ4tinaSV5RfNNVcYMxRhQLLzVzUbE-HZk9t4GtNQTxq4p-77XJbObaEXzpYgA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%ED%97%A4%EB%B8%90%EC%84%BC%EC%8A%A4%20%EC%84%B1%EC%88%98%EC%97%B0%EB%AC%B4%EC%9E%A5%EC%A0%90">헤븐센스 <span>성수연무장점</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">인센스 전문. 시향해 보고 고를 수 있어 선물용으로 좋고, 가격대도 부담이 없습니다.</p>
+  <p class="credit">사진 Fu sen, 냠냠 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="무신사 엠프티 성수 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="무신사 엠프티 성수 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDhbXpnzZvcAvwA0PszGrOaZI1hCUszTg8bk1jF2P1uMf2XHVc_SuAgxz5weP9XDWLafMjbn_W0x0iISDakFyCdBMIaw6qfxl9G9KmtwQhHL13ic53g2KF2NkEPK1aQfr0rC9tEkYCcuJ0p=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="무신사 엠프티 성수 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjAeIl1LcI9vVs6EwdFcQPj1MTctDKuVqjZkYXncLK5hq4HY4AxFFYWQxKdY3VZ2gfqHgOC98qchyOvDOj9xeq6U_zqA58yDbMW4vcqDpZoKYo7IK5n_5idTOe2ctzPmlG-yqvU0b2s0Zi6RHg=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EB%AC%B4%EC%8B%A0%EC%82%AC%20%EC%97%A0%ED%94%84%ED%8B%B0%20%EC%84%B1%EC%88%98">무신사 엠프티 <span>성수</span></a>
+    <em class="badge wait">입장 대기</em>
+  </div>
+  <p class="note">수입 디자이너 브랜드 위주의 하이엔드 편집숍. 가격대가 높고 <b>입장 줄이 생깁니다.</b> 관심 없으면 과감히 건너뛰세요.</p>
+  <p class="credit">사진 Myeongjoon Kim, George Ng · Google 지도</p>
+</article>
+
+<div class="zone"><h2>성수이로 쪽</h2><span class="clock">오후 4시 – 6시</span></div>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="대림창고 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="대림창고 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjA41_WcIqNPOefZeow4ZjYaDGYtE78bYXn-HQMo4nHUJg94x6ElaRsU4Un0_TehZ5a3hShxDxONmYWT3ljpAQEneKGXEIyRYXPjgyGqMfJiNCa89yTAPqSry0UNFIRGz-WN-4iD5ACLBKlB_PA=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="대림창고 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjDf1ErZd8cYJUomltXwLDsnlMckLROlfer77ipVNHTrb6scMtzBHB_6J8zoY2c7cF-XAIVKIQ6TpxSEukrw8sPX3CgmLhk6RGmcWbogsgrK6hmvA5hskhv-mFJ9c7syDfhNdlPixO57ZkOkhEA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EB%8C%80%EB%A6%BC%EC%B0%BD%EA%B3%A0">대림창고</a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">성수동을 대표하는 창고형 카페. 공간이 커서 자리는 웬만하면 있습니다. 다만 음악이 큰 편이라 대화가 목적이면 아래 까치화방이 낫습니다.</p>
+  <p class="credit">사진 HYOJUNE LIM, 蕭嘉麟 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="EQL 성수 그로브 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="EQL 성수 그로브 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCyRZrMt8-AniAmqXhCR9sCeRQhD2TN9FGYcXeyAWSjT53W71Vz050b2SZZRCmYOzTtnLRpxwY8aBSiomiK_R7ht8pvmzomHd1oJy8pKNUT0sNh-HbyBvebsg4cae60Rm0MdSCiI3uTbCaO7w=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="EQL 성수 그로브 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBRwRGTLbEaxWHbr0_xwJIW_69VkrqJGWx7PZk_yQM4hbtWYnYk-Mq1QPZGyA6jloAR6chNusEEZ7sG7IRDDtv3ajqCubenzeHXuY7wZ3RECA-c7CC2lMLL9gLp9ajgGpLtmX1k6rpZNV_FuA=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/EQL%20%EC%84%B1%EC%88%98%20%EA%B7%B8%EB%A1%9C%EB%B8%8C">EQL <span>성수 그로브</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">컨템포러리 편집숍. 2층 팝업이 수시로 바뀌어서 갈 때마다 다른 브랜드를 봅니다.</p>
+  <p class="credit">사진 서규식, 김영준 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="까치화방 카페 성수점 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="까치화방 카페 성수점 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCwjTPH09R-Fkp2NVAgNbSWYBbN1gKbhPS5MgO1NgK4eJEv-CXEg84chbunwqRSnvweGJmIhhdJelLiulClbRwgYXPVdJyts7WMia71oqb4WkOjC8_ronRRCyz2nDVQyylAlxPNTfYdyRfgDA=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="까치화방 카페 성수점 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjCasmrKOuL5OuG5HAIaT80E1MPno9kgnl7WEPVhgyN81ctORw8e1ouBFbalOkNkGehP1eKsdj05mGXxPNVVr6Ldi_5suMECAJuRBHYIEOVJAmp7KeJLA8kBr9eu4yiEPrho1YPybpW0GrKS2LznXzYh=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%EA%B9%8C%EC%B9%98%ED%99%94%EB%B0%A9%20%EC%84%B1%EC%88%98%EC%A0%90">까치화방 카페 <span>성수점</span></a>
+    <em class="badge free">바로 입장</em>
+  </div>
+  <p class="note">꽃집을 겸한 카페. 좌석이 많고 조용해서 하루를 마무리하는 티타임에 가장 잘 맞습니다.</p>
+  <p class="credit">사진 Shadrack Tab, 까치화방 카페 성수점 · Google 지도</p>
+</article>
+
+<article class="spot">
+  <div class="shots" tabindex="0" role="group" aria-label="하우 돼지곰탕 사진 2장, 좌우로 넘겨보기">
+    <img loading="lazy" decoding="async" alt="하우 돼지곰탕 사진 1" src="https://lh3.googleusercontent.com/place-photos/AG9NLjBBWbyCC3WL0bAy_sny0gWV_7oGwRfYAtqtgnIbMgUUAzLQK9GXHIjyoaNW2eVSOvzK2cZD4yDNutqN5cliJKOP6CJx2XohVYM69osPeHvMXNKjm5sYai3pSeIR-g0lYB868H56Tz55neEC5lU=s4800-w800-h600">
+    <img loading="lazy" decoding="async" alt="하우 돼지곰탕 사진 2" src="https://lh3.googleusercontent.com/place-photos/AG9NLjB8f98bZ_tO39e1-W04BfXJWFGPwUpN67KECGzRWEl1-3VDGQBWecylqLaYf2IsZ459r62yCXh57In31woP9IDTLJoks_X284igbozht6f3I2VYKrRmICdSj7MQw0hD0Xesd7vFQoShQtnX=s4800-w800-h600">
+  </div>
+  <div class="head">
+    <a href="https://map.naver.com/p/search/%ED%95%98%EC%9A%B0%20%EB%8F%BC%EC%A7%80%EA%B3%B0%ED%83%95">하우 <span>돼지곰탕</span></a>
+    <em class="badge free">회전 빠름</em>
+  </div>
+  <p class="note">국물 요리라 회전이 빨라 대기가 짧습니다. 자극적이지 않아 저녁으로 무난하고, 국물은 추가가 됩니다.</p>
+  <p class="credit">사진 돼지곰탕 하우 성수본점 · Google 지도</p>
+</article>
+
+<div class="aside">
+  <h3>명품 쇼핑이 목적이라면</h3>
+  <p>성수동은 명품 상설매장 밀집지가 아닙니다. 오후 늦게 <a href="https://map.naver.com/p/search/%EA%B0%A4%EB%9F%AC%EB%A6%AC%EC%95%84%20%EB%B0%B1%ED%99%94%EC%A0%90%20%EC%95%95%EA%B5%AC%EC%A0%95">갤러리아 백화점(압구정)</a>으로 넘어가시는 편이 훨씬 편합니다. 택시로 15분, 냉방과 휴게 공간이 있어 골목을 걷는 것보다 체력 소모가 적습니다.</p>
+</div>
+
+<footer>
+  <p>9월 중순이라 낮에는 아직 덥습니다. 연무장길은 그늘이 거의 없으니 12–3시는 실내 위주로, 서울숲은 오전이나 4시 이후로 두세요. 바닥이 고르지 않은 구간이 많아 신발은 편한 것으로.</p>
+  <p>사진은 Google 지도에 공개된 장소 사진과 매체 제공 이미지이며, 각 촬영자와 매체에 저작권이 있습니다.</p>
+</footer>
+
+</body>
+</html>
